@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>M&amp;C</title>
+  <meta name="theme-color" content="#0e1621">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="M&amp;C">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%; width: 100%; overflow: hidden;
+      background: #0e1621;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #cargando {
+      position: fixed; inset: 0; z-index: 10;
+      background: linear-gradient(160deg, #0e1621 0%, #1c2a3a 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity .5s ease; gap: 22px;
+    }
+    #cargando.listo { opacity: 0; pointer-events: none; }
+    #cargando .logo {
+      font-family: Arial, Helvetica, sans-serif; font-size: 64px; font-weight: 800;
+      color: #fff; letter-spacing: -2px;
+    }
+    #cargando .spin {
+      width: 34px; height: 34px; border: 3px solid rgba(255,255,255,0.2);
+      border-top-color: #4a9eeb; border-radius: 50%;
+      animation: girar .8s linear infinite;
+    }
+    @keyframes girar { to { transform: rotate(360deg); } }
+    #marco {
+      position: fixed; inset: 0;
+      width: 100%; height: 100%;
+      border: 0;
+      padding-top: env(safe-area-inset-top);
+      background: #0e1621;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cargando">
+    <div class="logo">M&amp;C</div>
+    <div class="spin"></div>
+  </div>
+
+  <iframe id="marco"
+    src="https://script.google.com/macros/s/AKfycbwt9g4i1mRr5yhdG1MM1HXVjkfkCiTjTlv_-ictmPA-5Xq2Unj9pEhZbWGPYPpBQ9HJ/exec"
+    allow="clipboard-write"></iframe>
+
+  <script>
+    document.getElementById('marco').addEventListener('load', function () {
+      document.getElementById('cargando').classList.add('listo');
+    });
+    setTimeout(function () {
+      document.getElementById('cargando').classList.add('listo');
+    }, 6000);
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    }
+  </script>
+</body>
+</html>

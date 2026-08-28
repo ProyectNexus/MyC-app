@@ -1,0 +1,17 @@
+{
+  "name": "M&C Distribuciones",
+  "short_name": "M&C",
+  "description": "Gestión de M&C Distribuciones: movimientos, deudores, stock y notas.",
+  "lang": "es-AR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0e1621",
+  "theme_color": "#0e1621",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
